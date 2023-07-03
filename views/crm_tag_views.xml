@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <!-- Vista Arbol/Tree -->
+    <record id="crm_tag_tree_view" model="ir.ui.view">
+        <field name="name">crm.tag.tree.view</field>
+        <field name="model">crm.tag</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="id"/>
+                <field name="color" widget="color_picker"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- vista formulario -->
+    <record id="crm_tag_form_view" model="ir.ui.view">
+        <field name="name">crm.tag.form.view</field>
+        <field name="model">crm.tag</field>
+        <field name="arch" type="xml">
+            <form string="CRM Tag">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="id"/>
+                        <field name="color" widget="color_picker"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="crm_tag_action" model="ir.actions.act_window">
+        <field name="name">CRM Tags</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">crm.tag</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- menu items -->
+    <menuitem id="crm_tag_menu" name="CRM Tags" parent="sale.menu_sale_order" action="crm_tag_action"/>
+</odoo>
